@@ -3,12 +3,11 @@
 -include= ~../cnf/resources/bnd/bundle.props
 bVersion=1.0
 
-Bundle-Name: Long Running Actions
+Bundle-Name: LRA Coordinator
 Bundle-SymbolicName: com.ibm.ws.lra
-Bundle-Description: Long Running Actions Impl; version=${bVersion}
+Bundle-Description: Long Running Actions Coordinator Impl; version=${bVersion}
 
 Export-Package: \
-    com.ibm.ws.lra, \
     com.ibm.ws.lra.servlet, \
     com.ibm.ws.lra.rest
 
@@ -28,22 +27,21 @@ OL-VirtualHost: ${admin.virtual.host}
 #    configuration-policy:=ignore;\
 #    properties:="service.vendor=IBM"
     
--dsannotations: com.ibm.ws.lra.LraFilterComponent, com.ibm.ws.lra.LraConfig
+#-dsannotations: com.ibm.ws.lra.LraFilterComponent, com.ibm.ws.lra.LraConfig
 
 Include-Resource: \
   OSGI-INF=resources/OSGI-INF, \
   WEB-INF=resources/WEB-INF
     
 -buildpath: \
-	com.ibm.ws.org.jboss.narayana.rts;version=latest,\
 	com.ibm.ws.logging.core;version=latest,\
 	com.ibm.websphere.org.osgi.core;version=latest,\
 	com.ibm.websphere.org.osgi.service.cm;version=latest,\
 	com.ibm.websphere.org.osgi.service.component;version=latest,\
 	com.ibm.ws.org.osgi.annotation.versioning;version=latest, \
 	com.ibm.wsspi.org.osgi.service.component.annotations;version=latest, \
-	com.ibm.websphere.javaee.jaxrs.2.0;version=latest, \
-	com.ibm.ws.jaxrs.2.0.common;version=latest, \
+	com.ibm.websphere.javaee.jaxrs.2.1;version=latest, \
+	com.ibm.ws.jaxrs.2.1.common;version=latest, \
 	com.ibm.websphere.javaee.servlet.4.0; version=latest, \
 	com.ibm.ws.webcontainer; version=latest
 	

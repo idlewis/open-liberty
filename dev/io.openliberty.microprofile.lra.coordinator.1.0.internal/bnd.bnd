@@ -8,7 +8,6 @@ Bundle-SymbolicName: io.openliberty.microprofile.lra.coordinator.1.0.internal
 Bundle-Description: Long Running Actions Coordinator Impl; version=${bVersion}
 
 Export-Package: \
-    com.ibm.ws.lra.servlet, \
     com.ibm.ws.lra.rest
 
 

@@ -29,7 +29,7 @@ public class TestResource {
     public String getTest() {
         LOGGER.log(Level.FINE, "I am fine thank you");
         LOGGER.log(Level.SEVERE, "I am SEVERE thank you");
-        return "Hello from a rooty feature/jaxrs at " + new Date().toString() + "\n";
+        return "Hello from a root resource with no xml or servlets at " + new Date().toString() + "\n";
     }
 
 }

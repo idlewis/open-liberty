@@ -20,23 +20,23 @@ import javax.ws.rs.core.Application;
  *
  */
 @ApplicationPath("/app")
-public class RestTest extends Application {
+public class RestApp extends Application {
 
-    private static final Logger LOGGER = Logger.getLogger(RestTest.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(RestApp.class.getName());
 
-    public RestTest() {
+    public RestApp() {
         LOGGER.log(Level.FINE, "I am fine and constructing  classes thank you");
-        LOGGER.log(Level.SEVERE, "I am SEVERE and constructing classes thank you");
+        LOGGER.log(Level.SEVERE, "I am SEVERE and constructing RestApp classes thank you");
 
     }
 
     /*
      * @Override
      * public Set<Class<?>> getClasses() {
-     * 
+     *
      * LOGGER.log(Level.FINE, "I am fine and getting classes thank you");
      * LOGGER.log(Level.SEVERE, "I am SEVERE and getting classes thank you");
-     * 
+     *
      * return Collections.singleton(TestResource.class);
      * }
      */

@@ -4,7 +4,7 @@
 bVersion=1.0
 
 Bundle-Name: LRA Coordinator
-Bundle-SymbolicName: com.ibm.ws.lra
+Bundle-SymbolicName: io.openliberty.microprofile.lra.coordinator.1.0.internal
 Bundle-Description: Long Running Actions Coordinator Impl; version=${bVersion}
 
 Export-Package: \

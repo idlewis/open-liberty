@@ -1,0 +1,45 @@
+#*******************************************************************************
+# Copyright (c) 2020 IBM Corporation and others.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+#
+# Contributors:
+#    IBM Corporation 
+# This wraps the external JAR.
+#*******************************************************************************
+-include= ~../cnf/resources/bnd/rejar.props
+
+bVersion=1.0
+
+javac.source: 1.8
+javac.target: 1.8
+
+Bundle-SymbolicName: io.openliberty.org.jboss.narayana.rts.lra-coordinator; singleton:=true
+                     
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+
+# We will whittle this down once it is working
+Export-Package: \
+  io.narayana.lra.*; version=5.10.5, \
+  io.narayana.lra; version=5.10.5
+  
+Private-Package: com.arjuna*; version=5.10.5
+
+Import-Package: \
+    !android.os, \
+    !com.arjuna.ats.internal.jta, \
+    !com.sun.tools.jconsole, \
+    *
+
+# TODO what should this be?
+#WS-TraceGroup: REACTIVESTREAMS
+
+instrument.disabled: true
+
+-buildpath: \
+  org.jboss.narayana.rts:lra-coordinator-jar;version=5.10.5.Final, \
+  org.jboss.narayana.arjunacore:arjuna;version=5.10.5.Final, \
+  org.jboss.narayana:common;version=5.10.5.Final
+

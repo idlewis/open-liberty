@@ -475,6 +475,8 @@ org.jboss.classfilewriter:jboss-classfilewriter:1.1.2.Final
 org.jboss.classfilewriter:jboss-classfilewriter:1.2.4.Final
 org.jboss.jdeparser:jdeparser:1.0.0.Final
 org.jboss.logging:jboss-logging:3.4.1.Final
+org.jboss.narayana.arjunacore:arjuna:5.10.5.Final
+org.jboss.narayana:common:5.10.5.Final
 org.jboss.narayana.rts:lra-client:5.10.5.Final
 org.jboss.narayana.rts:lra-proxy-api:5.10.5.Final
 org.jboss.narayana.rts:lra-service-base:5.10.5.Final

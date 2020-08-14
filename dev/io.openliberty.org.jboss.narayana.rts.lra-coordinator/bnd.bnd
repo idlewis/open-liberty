@@ -20,6 +20,9 @@ Bundle-SymbolicName: io.openliberty.org.jboss.narayana.rts.lra-coordinator; sing
                      
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
 
+Web-ContextPath: lra-coordinator
+OL-VirtualHost: ${admin.virtual.host}
+
 # We will whittle this down once it is working
 Export-Package: \
   io.narayana.lra.*; version=5.10.5, \
@@ -31,6 +34,8 @@ Import-Package: \
     !android.os, \
     !com.arjuna.ats.internal.jta, \
     !com.sun.tools.jconsole, \
+    !org.apache.activemq.artemis.core*, \
+    !org.jfree*, \
     *
 
 # TODO what should this be?

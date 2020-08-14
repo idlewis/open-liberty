@@ -41,5 +41,6 @@ instrument.disabled: true
 -buildpath: \
   org.jboss.narayana.rts:lra-coordinator-jar;version=5.10.5.Final, \
   org.jboss.narayana.arjunacore:arjuna;version=5.10.5.Final, \
-  org.jboss.narayana:common;version=5.10.5.Final
+  org.jboss.narayana:common;version=5.10.5.Final, \
+  org.jboss.narayana.rts:lra-service-base;version=5.10.5.Final
 

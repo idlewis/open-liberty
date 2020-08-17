@@ -30,16 +30,19 @@ Export-Package: \
   
 Private-Package: com.arjuna*; version=5.10.5
 
+# The excluded packages appear to be optional parts of narayana
+# They are excluded here, as otherwise the jars would need to be
+# dragged into the bundle which would make it huge. If a decision
+# is made to support more of the optional parts of narayana in future, 
+# some of the excluded packages may need to be added back 
 Import-Package: \
     !android.os, \
     !com.arjuna.ats.internal.jta, \
     !com.sun.tools.jconsole, \
     !org.apache.activemq.artemis.core*, \
     !org.jfree*, \
+    !org.eclipse.microprofile.openapi*, \
     *
-
-# TODO what should this be?
-#WS-TraceGroup: REACTIVESTREAMS
 
 instrument.disabled: true
 

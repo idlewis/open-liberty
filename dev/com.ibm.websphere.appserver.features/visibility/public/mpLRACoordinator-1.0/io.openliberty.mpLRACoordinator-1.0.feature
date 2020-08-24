@@ -14,6 +14,8 @@ IBM-API-Package: \
   org.eclipse.microprofile.lra.annotation.ws.rs; type="stable";
 -bundles= \
     io.openliberty.microprofile.lra.coordinator.1.0.internal
+-files= \
+    lib/mpLraCoordinator_1.0.43.jar
 kind=noship
 edition=full
 

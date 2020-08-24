@@ -17,9 +17,11 @@ javac.target: 1.8
 #Web-ContextPath: lra
 #OL-VirtualHost: ${admin.virtual.host}    
 
+IBM-Default-Config: \
+    OSGI-INF/wlp/defaultInstances.xml
 
 Include-Resource: \
-  OSGI-INF=resources/OSGI-INF
+    OSGI-INF=resources/OSGI-INF
     
 -buildpath: \
 	com.ibm.ws.logging.core;version=latest,\

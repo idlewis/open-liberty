@@ -28,7 +28,7 @@ Export-Package: \
   io.narayana.lra.*; version=5.10.5, \
   io.narayana.lra; version=5.10.5
   
-Private-Package:
+Private-Package: \
     com.arjuna*; version=5.10.5, \
     org.jboss.logging*; version=3.4.1
 

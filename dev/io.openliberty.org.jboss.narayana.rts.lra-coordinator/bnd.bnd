@@ -20,15 +20,17 @@ Bundle-SymbolicName: io.openliberty.org.jboss.narayana.rts.lra-coordinator; sing
                      
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
 
-Web-ContextPath: lra-coordinator
-OL-VirtualHost: ${admin.virtual.host}
+#Web-ContextPath: lra-coordinator
+#OL-VirtualHost: ${admin.virtual.host}
 
 # We will whittle this down once it is working
 Export-Package: \
   io.narayana.lra.*; version=5.10.5, \
   io.narayana.lra; version=5.10.5
   
-Private-Package: com.arjuna*; version=5.10.5
+Private-Package:
+    com.arjuna*; version=5.10.5, \
+    org.jboss.logging*; version=3.4.1
 
 # The excluded packages appear to be optional parts of narayana
 # They are excluded here, as otherwise the jars would need to be
@@ -47,8 +49,14 @@ Import-Package: \
 instrument.disabled: true
 
 -buildpath: \
+  org.jboss.logging:jboss-logging;version=3.4.1.Final, \
   org.jboss.narayana.rts:lra-coordinator-jar;version=5.10.5.Final, \
   org.jboss.narayana.arjunacore:arjuna;version=5.10.5.Final, \
   org.jboss.narayana:common;version=5.10.5.Final, \
   org.jboss.narayana.rts:lra-service-base;version=5.10.5.Final
+  
+
+-wab
+-outputmask: mpLraCoordinator.jar
+
 

@@ -10,5 +10,4 @@
  -->
 <server>
     <application context-root="/lracoord" type="war" id="lra-coord" location="${wlp.install.dir}/lib/mpLraCoordinator_1.0.49.jar"/>
-    foo
 </server>

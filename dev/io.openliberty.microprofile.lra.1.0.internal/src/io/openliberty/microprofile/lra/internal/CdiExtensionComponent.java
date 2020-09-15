@@ -33,11 +33,15 @@ public class CdiExtensionComponent implements CDIExtensionMetadata {
     @Override
     public Set<Class<? extends Extension>> getExtensions() {
 
+        System.err.println("I am registering an extension");
+
         return Collections.singleton(LRACDIExtension.class);
     }
 
     @Override
     public Set<Class<?>> getBeanClasses() {
+
+        System.err.println("I am getting bean classes");
         Set<Class<?>> beans = new HashSet<>();
         beans.add(ServerLRAFilter.class);
         beans.add(LRAParticipantResource.class);

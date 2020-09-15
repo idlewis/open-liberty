@@ -10,8 +10,6 @@
  *******************************************************************************/
 package io.openliberty.microprofile.lra.internal;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -23,11 +21,6 @@ import org.osgi.service.component.annotations.Reference;
 import com.ibm.websphere.ras.Tr;
 import com.ibm.websphere.ras.TraceComponent;
 import com.ibm.ws.jaxrs20.providers.api.JaxRsProviderRegister;
-
-import io.narayana.lra.client.NarayanaLRAClient;
-import io.narayana.lra.filter.ClientLRARequestFilter;
-import io.narayana.lra.filter.ClientLRAResponseFilter;
-import io.narayana.lra.filter.ServerLRAFilter;
 
 /**
  * A declarative services component can be completely POJO based
@@ -55,16 +48,6 @@ public class LraFilterComponent implements JaxRsProviderRegister {
         if (TraceComponent.isAnyTracingEnabled() && tc.isEventEnabled()) {
             Tr.event(tc, "LraFilterComponent activated", properties);
         }
-        String coordString = "http://" + config.getHost() + ":" + config.getPort() + "/" + config.getPath();
-        if (TraceComponent.isAnyTracingEnabled() && tc.isEventEnabled()) {
-            Tr.event(tc, "Attempting to contact coordinator at " + coordString);
-        }
-        try {
-            URI coord = new URI(coordString);
-            NarayanaLRAClient.setDefaultCoordinatorEndpoint(coord);
-        } catch (URISyntaxException e) {
-            throw new LraException(Tr.formatMessage(tc, "LRA_INVALID_COORDINATOR_URI.CWMRX5000E"), e);
-        }
 
     }
 
@@ -87,27 +70,6 @@ public class LraFilterComponent implements JaxRsProviderRegister {
             Tr.event(tc, "Registering LRA filters");
         }
 
-        if (clientSide) {
-            if (TraceComponent.isAnyTracingEnabled() && tc.isEventEnabled()) {
-                Tr.event(tc, "Registering client side filters");
-            }
-            ClientLRARequestFilter requestFilter = new ClientLRARequestFilter();
-            providers.add(requestFilter);
-            ClientLRAResponseFilter responseFilter = new ClientLRAResponseFilter();
-            providers.add(responseFilter);
-        } else {
-            if (TraceComponent.isAnyTracingEnabled() && tc.isEventEnabled()) {
-                Tr.event(tc, "Registering serverside side filters");
-            }
-            try {
-                // Rather unhelpfully, the ServerLRAFilter constructor throws 'Exception'. There isn't much we can do with
-                // that. Re-throwing should prevent the servlet being initialized, which is probably better than swallowing
-                // the exception
-                providers.add(new ServerLRAFilter());
-            } catch (Exception e) {
-                throw new LraRuntimeException(Tr.formatMessage(tc, "LRA_CANT_REGISTER_FILTERS.CWMRX5001E", e), e);
-            }
-        }
     }
 
 }

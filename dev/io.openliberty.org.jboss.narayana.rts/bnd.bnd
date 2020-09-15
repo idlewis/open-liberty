@@ -9,11 +9,13 @@
 #    IBM Corporation 
 # This wraps the external JAR.
 #*******************************************************************************
--include= ~../cnf/resources/bnd/rejar.props
+-include= ~../cnf/resources/bnd/bundle.props
 
 bVersion=1.0
 
+Bundle-Name: Lra Test
 Bundle-SymbolicName: io.openliberty.org.jboss.narayana.rts; singleton:=true
+Bundle-Description: Lra Test; version=${bVersion}
                      
 # We will whittle this down once it is working
 Export-Package: \
@@ -21,9 +23,7 @@ Export-Package: \
   io.narayana.lra; version=5.10.6
 
 instrument.disabled: true
-
+ 
 -buildpath: \
-  org.jboss.narayana.rts:lra-client;version=5.10.6.Final, \
-  org.jboss.narayana.rts:narayana-lra;version=5.10.6.Final, \
-  org.jboss.narayana.rts:lra-proxy-api;version=5.10.6.Final, \
-  org.jboss.narayana.rts:lra-service-base;version=5.10.6.Final
+	com.ibm.ws.cdi.interfaces;version=latest, \
+	com.ibm.websphere.javaee.cdi.2.0

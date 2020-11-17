@@ -10,7 +10,6 @@
  *******************************************************************************/
 package io.openliberty.microprofile.lra.internal;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,10 +18,10 @@ import javax.enterprise.inject.spi.Extension;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
 
-import io.narayana.lra.client.internal.proxy.nonjaxrs.LRACDIExtension;
 import io.narayana.lra.client.internal.proxy.nonjaxrs.LRAParticipantResource;
 import io.narayana.lra.filter.ServerLRAFilter;
 import io.openliberty.cdi.spi.CDIExtensionMetadata;
+import io.openliberty.microprofile.lra.internal.cdi.LibertyCdiExtension;
 
 /**
  *
@@ -32,7 +31,11 @@ public class CdiExtensionComponent implements CDIExtensionMetadata {
 
     @Override
     public Set<Class<? extends Extension>> getExtensions() {
-        return Collections.singleton(LRACDIExtension.class);
+        Set<Class<? extends Extension>> classes = new HashSet<>();
+        //classes.add(LRACDIExtension.class);
+        classes.add(LibertyCdiExtension.class);
+        return classes;
+        //return Collections.singleton(LRACDIExtension.class);
     }
 
     @Override

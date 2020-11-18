@@ -18,17 +18,20 @@ Bundle-SymbolicName: io.openliberty.org.jboss.narayana.rts; singleton:=true
 # We will whittle this down once it is working
 Export-Package: \
   io.narayana.lra.*; version=5.10.6, \
-  io.narayana.lra; version=5.10.6
+  io.narayana.lra; version=5.10.6, \
+  io.openliberty.microprofile.lra.internal.cdi; version=5.10.6
 
 instrument.disabled: true
 
 Private-Package: \
-    io.openliberty.microprofile.lra.internal, \
-    io.openliberty.microprofile.lra.internal.cdi
+    io.openliberty.microprofile.lra.internal
 
 -dsannotations: \
     io.openliberty.microprofile.lra.internal.CdiExtensionComponent, \
     io.openliberty.microprofile.lra.internal.StartupComponent
+    
+Include-Resource: \
+    META-INF/services/io.narayana.lra.client.internal.proxy.nonjaxrs.LraClassFinder=resources/META-INF/services/io.narayana.lra.client.internal.proxy.nonjaxrs.LraClassFinder
 
 
 -buildpath: \

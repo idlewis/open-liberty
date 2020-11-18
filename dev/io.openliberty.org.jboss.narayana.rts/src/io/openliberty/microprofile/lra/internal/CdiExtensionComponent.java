@@ -18,6 +18,7 @@ import javax.enterprise.inject.spi.Extension;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
 
+import io.narayana.lra.client.internal.proxy.nonjaxrs.LRACDIExtension;
 import io.narayana.lra.client.internal.proxy.nonjaxrs.LRAParticipantResource;
 import io.narayana.lra.filter.ServerLRAFilter;
 import io.openliberty.cdi.spi.CDIExtensionMetadata;
@@ -32,8 +33,8 @@ public class CdiExtensionComponent implements CDIExtensionMetadata {
     @Override
     public Set<Class<? extends Extension>> getExtensions() {
         Set<Class<? extends Extension>> classes = new HashSet<>();
-        //classes.add(LRACDIExtension.class);
-        classes.add(LibertyCdiExtension.class);
+        classes.add(LRACDIExtension.class);
+        //classes.add(LibertyCdiExtension.class);
         return classes;
         //return Collections.singleton(LRACDIExtension.class);
     }

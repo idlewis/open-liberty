@@ -75,12 +75,22 @@ public class StartupComponent implements ApplicationStateListener {
     }
 
     /**
-     * Need to return a set of string classnames from the application where:
+     * This is effectively an implementation of the LraClassFinder interface that is proposed
+     * for narayana.
+     * Need to return a set of classes from the application where:
      * - The class is not abstract or an interface
      * - There is a jaxrs @Path annotation on either the class or any method
      * - The @LRA annotation is present on either
      * * the class
      * * one or more methods in the class
+     * That is, the class is an LRA participant
+     *
+     * TODO:
+     * - return classes not class names
+     * - as per the LraClassFinder interface, find a way to throw an error
+     * if the class is an invalid participant, in that there is neither
+     * a compensate or afterLRA method in the class
+     * - add the check for abstract classes/interfaces
      * -
      */
     private Set<String> getParticipants(AnnotationTargets_Targets targets, String appName) {

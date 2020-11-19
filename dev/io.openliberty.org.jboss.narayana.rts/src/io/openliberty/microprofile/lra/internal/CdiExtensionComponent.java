@@ -22,7 +22,6 @@ import io.narayana.lra.client.internal.proxy.nonjaxrs.LRACDIExtension;
 import io.narayana.lra.client.internal.proxy.nonjaxrs.LRAParticipantResource;
 import io.narayana.lra.filter.ServerLRAFilter;
 import io.openliberty.cdi.spi.CDIExtensionMetadata;
-import io.openliberty.microprofile.lra.internal.cdi.LibertyCdiExtension;
 
 /**
  *

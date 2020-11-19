@@ -15,6 +15,9 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
+import com.ibm.websphere.csi.J2EEName;
+import com.ibm.ws.threadContext.ComponentMetaDataAccessorImpl;
+
 import io.narayana.lra.client.internal.proxy.nonjaxrs.LraClassFinder;
 import io.openliberty.microprofile.lra.internal.StartupComponent;
 
@@ -29,6 +32,7 @@ public class Finder implements LraClassFinder {
         System.err.println("I am not going to find any classes");
         Map<String, Set<String>> data = StartupComponent.getLraData();
         System.err.println("but I have found " + data.size() + " apps");
+        J2EEName name = ComponentMetaDataAccessorImpl.getComponentMetaDataAccessor().getComponentMetaData().getModuleMetaData().getApplicationMetaData().getJ2EEName();
         return Collections.emptySet();
     }
 
